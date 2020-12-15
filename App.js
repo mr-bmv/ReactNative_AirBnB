@@ -8,6 +8,7 @@ import HomeScreen from './src/screens/Home'
 import Post from './src/components/Post';
 import feed from './assets/data/feed'
 import SearchResultsScreen from './src/screens/SearchResults';
+import DestinationSearchScreen from './src/screens/DestinationSearch';
 
 export default function App() {
 
@@ -19,7 +20,8 @@ export default function App() {
       />
       <SafeAreaView>
         {/* <HomeScreen /> */}
-        <SearchResultsScreen />
+        {/* <SearchResultsScreen /> */}
+        <DestinationSearchScreen />
       </SafeAreaView>
     </View>
   );

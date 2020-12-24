@@ -10,6 +10,7 @@ import feed from './assets/data/feed'
 import SearchResultsScreen from './src/screens/SearchResults';
 import DestinationSearchScreen from './src/screens/DestinationSearch';
 import GuestsScreen from './src/screens/Guests';
+import Router from './src/navigation/Router';
 
 export default function App() {
 
@@ -19,12 +20,11 @@ export default function App() {
         barStyle="dark-content"
       // hidden={true}
       />
-      <SafeAreaView>
-        {/* <HomeScreen /> */}
-        {/* <SearchResultsScreen /> */}
-        {/* <DestinationSearchScreen /> */}
-        <GuestsScreen />
-      </SafeAreaView>
+      {/* <HomeScreen /> */}
+      {/* <SearchResultsScreen /> */}
+      {/* <DestinationSearchScreen /> */}
+      {/* <GuestsScreen /> */}
+      <Router />
     </View>
   );
 };

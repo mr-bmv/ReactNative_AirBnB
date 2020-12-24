@@ -2,39 +2,36 @@ import React, { useState } from "react";
 import { View, TextInput, Text, FlatList, Pressable } from "react-native";
 import styles from './styles.js';
 import { Fontisto } from '@expo/vector-icons';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
-import searchResults from '../../../assets/data/search';
+// import searchResults from '../../../assets/data/search';
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import SuggestionRow from "./SuggestionRow.js";
 
-const DestinationSearchScreen = (props) => {
+const DestinationSearchScreen = () => {
 
-  const [inputText, setInputText] = useState('');
-
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      {/* Input component*/}
-      <TextInput
-        style={styles.textInput}
-        placeholder="Where are you going?"
-        value={inputText}
-        onChangeText={setInputText}
-      />
-
-      {/*  List of destination */}
-      <FlatList
-        data={searchResults}
-        renderItem={({ item }) => (
-          <Pressable
-            //  onPress={() => navigation.navigate('Guests')}
-            style={styles.row}>
-            <View style={styles.iconContainer}>
-              <Fontisto name="map-marker-alt" size={24} color="black" />
-            </View>
-            <Text style={styles.locationText}>{item.description}</Text>
-          </Pressable>
-        )}
+      <GooglePlacesAutocomplete
+        placeholder='Where are you going?'
+        onPress={(data, details = null) => {
+          // 'details' is provided when fetchDetails = true
+          console.log(data, details);
+          navigation.navigate('Guests');
+        }}
+        fetchDetails
+        styles={{
+          textInput: styles.textInput,
+        }}
+        query={{
+          key: 'AIzaSyCzd-XXIteB6M-L-LoEOxr_x-BlYCmUQoU',
+          language: 'en',
+          types: '(cities)',
+        }}
+        // suppressDefaultStyles
+        renderRow={(item) => <SuggestionRow item={item} />}
       />
     </View>
   );

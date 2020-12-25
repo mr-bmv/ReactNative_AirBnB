@@ -30,7 +30,7 @@ const DestinationSearchScreen = () => {
           language: 'en',
           types: '(cities)',
         }}
-        // suppressDefaultStyles
+        suppressDefaultStyles
         renderRow={(item) => <SuggestionRow item={item} />}
       />
     </View>

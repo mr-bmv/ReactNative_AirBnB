@@ -4,6 +4,7 @@ import ExploreNavigator from './ExploreNavigator';
 import HomeScreen from '../screens/Home';
 
 import { FontAwesome, Fontisto, FontAwesome5, Feather, EvilIcons } from '@expo/vector-icons';
+import SearchResultMap from '../screens/SearchResultMap';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +16,8 @@ const HomeTabNavigator = (props) => {
       }}>
       <Tab.Screen
         name={'Explore'}
-        component={ExploreNavigator}
+        // component={ExploreNavigator}
+        component={SearchResultMap}
         options={{
           tabBarIcon: ({ color }) => (
             <Fontisto name="search" size={25} color={color} />

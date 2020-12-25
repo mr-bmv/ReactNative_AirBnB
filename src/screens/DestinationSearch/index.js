@@ -14,6 +14,7 @@ const DestinationSearchScreen = () => {
 
   return (
     <View style={styles.container}>
+      {/* Need to Enable it jn billing account og Google developer */}
       <GooglePlacesAutocomplete
         placeholder='Where are you going?'
         onPress={(data, details = null) => {

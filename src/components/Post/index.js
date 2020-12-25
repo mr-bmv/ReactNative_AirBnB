@@ -1,13 +1,19 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Pressable } from 'react-native';
 import styles from './styles.js';
 
 const Post = (props) => {
 
-  const { image, bed, bedroom, type, title, oldPrice, newPrice, totalPrice } = props.post;
+  const { image, bed, bedroom, type, title, oldPrice, newPrice, totalPrice, id } = props.post;
+  const navigation = useNavigation();
+
+  const goToPostPage = () => {
+    navigation.navigate('Post', { postId: id });
+  }
 
   return (
-    <View style={styles.container}>
+    <Pressable onPress={goToPostPage} style={styles.container}>
       {/* Image  */}
       <Image
         style={styles.image}
@@ -38,7 +44,7 @@ const Post = (props) => {
       {/*  Total price */}
       <Text style={styles.totalPrice}>${totalPrice} total</Text>
       {/* <Text style={styles.totalPrice}>$20 total</Text> */}
-    </View>
+    </Pressable>
 
   );
 };
